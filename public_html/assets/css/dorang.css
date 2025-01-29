@@ -12035,8 +12035,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  padding: 40px 0;
+  height: 85vh;
   transition: background-color 0.3s ease;
 }
 
@@ -12329,95 +12328,275 @@ body.light-theme li {
 }
 
 /* program */
-/* Custom CSS for Features Section */
-#features {
+.program {
   padding: 60px 0;
-  background-color: #f5f6f7;
 }
 
-#features .nav-tabs {
-  border: none;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 40px;
-}
-
-#features .nav-item {
-  text-align: center;
-  font-size: 18px;
-  padding: 15px;
-}
-
-#features .nav-link {
-  color: #4e4e4e;
-  font-weight: 600;
-  text-transform: uppercase;
-  transition: all 0.3s ease;
-}
-
-#features .nav-link i {
-  font-size: 40px;
-  color: #007bff;
-  margin-bottom: 10px;
-  transition: all 0.3s ease;
-}
-
-#features .nav-link.active,
-#features .nav-link:hover {
-  background-color: transparent;
-  color: #007bff;
-}
-
-#features .tab-content .tab-pane {
-  padding: 40px 0;
-}
-
-#features .tab-content .tab-pane h3 {
-  font-size: 26px;
-  color: #343a40;
-  font-weight: bold;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-#features .feature-list {
-  list-style: none;
-  padding: 0;
-  font-size: 16px;
-  color: #6c757d;
-  margin-bottom: 20px;
-}
-
-#features .feature-list li {
-  margin-bottom: 12px;
-  line-height: 1.8;
-}
-
-#features .tab-content .tab-pane .col-lg-6 {
-  margin-bottom: 30px;
-}
-
-#features .tab-content .tab-pane img {
+.program-img img {
   max-width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px var(--shadow-color);
 }
 
-@media (max-width: 768px) {
-  #features .nav-tabs {
-    flex-direction: column;
-  }
+/* Tab Navigation */
+.nav-pills .nav-link {
+  border-radius: 5px;
+  margin-right: 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px 20px;
+  background-color: var(--secondary-bg-color);
+  color: var(--primary-text-color);
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
 
-  #features .nav-item {
+/* Add border around text */
+.nav-pills .nav-link:hover,
+.nav-pills .nav-link:focus {
+  border-color: var(--highlight-border-color);
+  background-color: var(--highlight-color);
+}
+
+/* Active Link */
+.nav-pills .nav-link.active {
+  background-color: var(--accent-color);
+  color: var(--secondary-bg-color);
+  border-color: var(--accent-color);
+}
+
+/* Border on click - Make the border blue */
+.nav-pills .nav-link.clicked {
+  border-color: var(--click-border-color);
+  background-color: var(--highlight-color);
+}
+
+/* Dark Mode - Specific for active and hover states */
+[data-theme="dark"] .nav-pills .nav-link:hover,
+[data-theme="dark"] .nav-pills .nav-link:focus {
+  border-color: #555; /* Dark border color on hover in dark mode */
+}
+
+[data-theme="dark"] .nav-pills .nav-link.clicked {
+  border-color: #1e90ff; /* Blue border on click in dark mode */
+}
+
+/* Tab Content */
+.tab-pane {
+  background-color: var(--secondary-bg-color);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px var(--shadow-color);
+  margin-top: 20px;
+}
+
+.fst-italic {
+  font-style: italic;
+  color: var(--secondary-text-color);
+}
+
+/* List of Features */
+.d-flex {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.d-flex i {
+  font-size: 1.5rem;
+  margin-right: 10px;
+  color: var(--accent-color);
+}
+
+.d-flex h4 {
+  font-size: 1.25rem;
+  color: var(--primary-text-color);
+}
+
+/* Light & Dark Mode Button */
+.theme-switcher {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: var(--secondary-bg-color);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px var(--shadow-color);
+  cursor: pointer;
+}
+
+.theme-switcher i {
+  font-size: 1.5rem;
+  color: var(--primary-text-color);
+}
+
+/* Hover Effects */
+.nav-pills .nav-link:hover {
+  background-color: var(--highlight-color);
+}
+
+.tab-pane:hover {
+  box-shadow: 0 6px 18px var(--shadow-color);
+}
+
+.d-flex h4:hover {
+  color: var(--accent-color);
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+  .program .container {
+    width: 95%;
+  }
+  .col-lg-5,
+  .col-lg-7 {
     width: 100%;
-    text-align: left;
-    margin-bottom: 20px;
+    text-align: center;
   }
+}
 
-  #features .tab-content .tab-pane img {
-    max-width: 80%;
-    margin: 0 auto;
+@media (max-width: 767px) {
+  .section-title h2 {
+    font-size: 2rem;
   }
+  .nav-pills .nav-link {
+    font-size: 1rem;
+  }
+  .tab-pane {
+    padding: 15px;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--accent-color);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--primary-bg-color);
+}
+
+/* Material */
+.material {
+  padding: 60px 0;
+  background-color: #2a2a2a;
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.material-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: space-between;
+}
+
+.material-item {
+  background-color: #2a2a2a;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  overflow: hidden;
+  width: calc(33.333% - 30px);
+  border: 2px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease,
+    border 0.3s ease; /* Added transitions */
+}
+
+.material-item:hover {
+  transform: translateY(-10px);
+}
+
+.material-content {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  flex-direction: column;
+  text-align: center;
+}
+
+.material-icon {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 15px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.material-text h3 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.material-text p {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Dark Mode Styles */
+body.dark-theme .material {
+  background-color: #212529;
+}
+
+body.dark-theme .material-item {
+  background-color: #2a2a2a;
+  border: 2px solid #666;
+}
+
+body.dark-theme .material-text h3 {
+  color: #fff;
+}
+
+body.dark-theme .material-text p {
+  color: #ddd;
+}
+
+body.dark-theme .material-item:hover {
+  transform: translateY(
+    -10px
+  ); /* You can adjust this for better interaction on dark mode */
+}
+
+body.dark-theme .material-item {
+  background-color: #555; /* Dark background for items in dark mode */
+  border: 2px solid #666; /* Darker border */
+}
+
+body.dark-theme .material-text h3 {
+  color: #fff; /* White text for headings */
+}
+
+body.dark-theme .material-text p {
+  color: #ddd; /* Lighter text for paragraphs */
+}
+
+/* Light Mode Styles (default if dark mode is not applied) */
+body.light-theme .material {
+  background-color: #f5f5f5;
+}
+
+body.light-theme .material-item {
+  background-color: #fff;
+  border: 2px solid #e0e0e0;
+}
+
+body.light-theme .material-text h3 {
+  color: #333;
+}
+
+body.light-theme .material-text p {
+  color: #555;
 }
 
 /* coach */
@@ -12658,6 +12837,7 @@ body.dark-theme .con-info span {
 /* Google Map */
 .google-map {
   margin-top: 40px;
+  padding-bottom: 50px;
   width: 100%;
   height: 400px;
   padding: 0 20px; /* Adds space to the left and right sides of the map */
@@ -12702,6 +12882,81 @@ body.dark-theme #map_canvas {
   .contact-form textarea {
     font-size: 16px;
   }
+}
+
+/* Sponsor */
+/* Keyframe for sliding animation */
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+/* Base styles for logos section */
+.logos {
+  overflow: hidden;
+  padding: 40px 0;
+  background: white;
+  white-space: nowrap;
+  position: relative;
+  transition: background-color 0.3s ease; /* Transition for background color */
+}
+
+.logos:before,
+.logos:after {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  content: "";
+  z-index: 2;
+}
+
+/* Dark Mode Styles for logos */
+body.dark-theme .logos {
+  background-color: #121212; /* Dark background for logos section */
+}
+
+body.dark-theme .logos-slide img {
+  filter: brightness(0) invert(1); /* Makes logos white in dark mode */
+}
+
+/* Hover effect for logos slide to pause animation */
+.logos:hover .logos-slide {
+  animation-play-state: paused;
+}
+
+/* Logos slide animation */
+.logos-slide {
+  display: inline-block;
+  animation: 35s slide infinite linear;
+}
+
+/* Logos image styling */
+.logos-slide img {
+  height: 50px;
+  margin: 0 20px;
+  transition: filter 0.3s ease; /* Smooth transition for filter */
+}
+
+/* Light Mode Styles for logos (default if dark mode is not applied) */
+body.light-theme .logos {
+  background-color: white;
+}
+
+body.light-theme .logos:before {
+  background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
+}
+
+body.light-theme .logos:after {
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+}
+
+body.light-theme .logos-slide img {
+  filter: none; /* Normal logo appearance in light mode */
 }
 
 /* footer */
@@ -12988,7 +13243,7 @@ body.dark-theme {
 }
 
 body.dark-theme .about-us {
-  background-color: #1c1c1c;
+  background-color: #212529;
 }
 
 body.dark-theme .btn-cta {
