@@ -108,35 +108,28 @@ document.querySelector(".logos").appendChild(copy);
 
 // coach
 var swiper = new Swiper(".swiper-container", {
-  slidesPerView: 4, // Default: 4 slides on large screens
-  spaceBetween: 20, // Space between slides
-  loop: true, // Infinite loop
+  slidesPerView: 4, // Menampilkan 4 slide pada layar besar
+  spaceBetween: 20, // Jarak antar slide (pastikan cukup agar tidak terpotong)
+  loop: true, // Mengaktifkan loop agar carousel berputar tanpa henti
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
   pagination: {
     el: ".swiper-pagination",
-    clickable: true, // Allows pagination dots to be clicked
+    clickable: true,
   },
   breakpoints: {
-    // Large screens (1024px and up)
     1024: {
-      slidesPerView: 4, // 4 slides on large screens
-      spaceBetween: 20, // Ensure enough space between slides
+      slidesPerView: 4, // 4 slide pada layar besar
     },
-    // Tablets (768px and up)
     768: {
-      slidesPerView: 2, // 2 slides on tablet screens
-      spaceBetween: 15, // Adjust space for smaller screens
+      slidesPerView: 2, // 2 slide pada tablet
     },
-    // Small mobile devices (480px and up)
     480: {
-      slidesPerView: 1, // 1 slide on very small screens
-      spaceBetween: 10, // Less space for small screens
+      slidesPerView: 1, // 1 slide pada layar kecil
     },
   },
-  centeredSlides: true, // Center the active slide on mobile for better appearance
-  watchOverflow: true, // Ensures if slides are less than configured, they won't show empty space
-  grabCursor: true, // Makes the cursor look like a grab hand when hovering over slides
+  centeredSlides: false, // Menjaga agar slide tidak tersusun secara melengkung
+  watchOverflow: true, // Memastikan jika ada lebih dari 4 slide, sisanya disembunyikan
 });
