@@ -1,16 +1,3 @@
-/*!
-=========================================================
-* Dorang Landing page V 1.0
-=========================================================
-
-* Copyright: 2019 DevCRUD (https://devcrud.com)
-* Licensed: (https://devcrud.com/licenses)
-* Coded by www.devcrud.com
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
 @import url("https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700");
 :root {
   --blue: #007bff;
@@ -11602,62 +11589,43 @@ a:hover {
 }
 
 /* page navbar */
+/* Base Navbar Styling */
 .page-navbar {
   z-index: 999;
   position: fixed;
   width: 100%;
   top: 0;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   height: 110px;
-  -webkit-transition: all, 0.5s;
-  transition: all, 0.5s;
+  transition: all 0.5s ease;
+  background-color: #292f36; /* Optional: Customize the navbar background color */
 }
 
 @media (prefers-reduced-motion: reduce) {
   .page-navbar {
-    -webkit-transition: none;
     transition: none;
   }
 }
 
+/* Navbar Links and Items */
 .page-navbar .nav-navbar {
   height: 100%;
   list-style-type: none;
   padding-left: 0;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
   align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .page-navbar .nav-navbar .nav-item {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
   flex-grow: 1;
   text-align: center;
-  -webkit-flex-basis: 0;
-  -ms-flex-preferred-size: 0;
-  flex-basis: 0;
 }
 
 .page-navbar .nav-navbar .nav-link {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
   flex-grow: 1;
   text-align: center;
-  -webkit-flex-basis: 0;
-  -ms-flex-preferred-size: 0;
-  flex-basis: 0;
-  flex-grow: 1;
   color: #f8f9fa;
   font-weight: bold;
   text-decoration: none;
@@ -11677,6 +11645,7 @@ a:hover {
   width: calc(25px + (45 - 25) * ((100vw - 300px) / (1300 - 300)));
 }
 
+/* Search Bar */
 .page-navbar .nav-navbar .search {
   position: relative;
 }
@@ -11693,18 +11662,8 @@ a:hover {
   min-width: 250px;
   opacity: 0;
   visibility: hidden;
-  -webkit-transform: translateY(10px);
-  -ms-transform: translateY(10px);
   transform: translateY(10px);
-  -webkit-transition: all, 0.3s;
-  transition: all, 0.3s;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .page-navbar .nav-navbar .search .search-wrapper {
-    -webkit-transition: none;
-    transition: none;
-  }
+  transition: all 0.3s ease;
 }
 
 .page-navbar .nav-navbar .search .search-wrapper:after {
@@ -11712,10 +11671,7 @@ a:hover {
   width: 15px;
   height: 15px;
   border-radius: 3px;
-  display: block;
   background: inherit;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
   transform: rotate(45deg);
   position: absolute;
   top: -8px;
@@ -11734,11 +11690,10 @@ a:hover {
 .page-navbar .nav-navbar .search .search-wrapper.show {
   opacity: 1;
   visibility: visible;
-  -webkit-transform: translateY(0);
-  -ms-transform: translateY(0);
   transform: translateY(0);
 }
 
+/* Navbar when it becomes sticky */
 .page-navbar.affix {
   background: #212529;
   height: 70px;
@@ -11747,6 +11702,100 @@ a:hover {
 
 .page-navbar.affix .nav-link {
   color: #fff;
+}
+
+/* Media Queries for responsiveness */
+
+/* Mobile-first (default for small screens) */
+@media (max-width: 767px) {
+  .page-navbar {
+    height: 80px; /* Reduced navbar height for mobile */
+  }
+
+  .page-navbar .nav-navbar {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center;
+  }
+
+  .page-navbar .nav-navbar .nav-item {
+    flex-grow: 0; /* Remove flex-grow for better control on mobile */
+  }
+
+  .page-navbar .nav-navbar .nav-link {
+    font-size: 14px; /* Adjust font size for smaller screens */
+    padding: 10px; /* Add padding for better clickability */
+  }
+
+  .page-navbar .nav-navbar .search .search-wrapper {
+    top: 130%; /* Adjust search box position */
+    right: 10%; /* Adjust search box alignment */
+    min-width: 200px; /* Smaller search box width for mobile */
+  }
+
+  .page-navbar .nav-navbar .search .search-wrapper input {
+    width: 100%; /* Make input field take full width on mobile */
+  }
+
+  .page-navbar .nav-navbar .nav-link img {
+    width: 30px; /* Adjust logo/icon size for mobile */
+  }
+}
+
+/* Tablet screens (768px to 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .page-navbar {
+    height: 90px; /* Adjust height for tablets */
+  }
+
+  .page-navbar .nav-navbar {
+    flex-direction: row; /* Keep items in row for tablets */
+    justify-content: space-evenly;
+  }
+
+  .page-navbar .nav-navbar .nav-item {
+    flex-grow: 1;
+  }
+
+  .page-navbar .nav-navbar .nav-link {
+    font-size: 16px; /* Slightly larger font for tablets */
+    padding: 12px;
+  }
+
+  .page-navbar .nav-navbar .search .search-wrapper {
+    top: 140%; /* Adjust search box for tablet view */
+    right: 20%;
+    min-width: 220px; /* Make search box slightly wider */
+  }
+
+  .page-navbar .nav-navbar .nav-link img {
+    width: 35px; /* Increase logo/icon size for tablets */
+  }
+}
+
+/* Larger desktops (above 1024px) */
+@media (min-width: 1025px) {
+  .page-navbar {
+    height: 110px; /* Default height for larger desktops */
+  }
+
+  .page-navbar .nav-navbar {
+    flex-direction: row; /* Keep items in row for desktops */
+    justify-content: space-between;
+  }
+
+  .page-navbar .nav-navbar .nav-link {
+    font-size: 18px; /* Default font size for large screens */
+  }
+
+  .page-navbar .nav-navbar .search .search-wrapper {
+    top: 150%; /* Adjust position for large screens */
+    right: 25%;
+    min-width: 250px; /* Default search box width */
+  }
+
+  .page-navbar .nav-navbar .nav-link img {
+    width: 45px; /* Default icon size for large screens */
+  }
 }
 
 /* select theme */
@@ -11954,6 +12003,7 @@ a:hover {
 .header .header-content .header-subtitle {
   opacity: 1;
   margin-bottom: 30px;
+  font-weight: bold;
 }
 
 .header .header-content .btn-theme-color {
@@ -12037,6 +12087,7 @@ body {
   align-items: center;
   height: 85vh;
   transition: background-color 0.3s ease;
+  padding: 0 20px; /* Add some horizontal padding for smaller screens */
 }
 
 .about-content {
@@ -12045,12 +12096,14 @@ body {
   justify-content: space-between;
   width: 100%;
   max-width: 1200px;
+  flex-wrap: wrap; /* Allow content to wrap on smaller screens */
 }
 
 .image-container {
   flex: 1;
   max-width: 500px;
   margin-right: 40px;
+  margin-bottom: 20px; /* Space below image on smaller screens */
 }
 
 .about-image {
@@ -12155,7 +12208,51 @@ body {
   color: white;
 }
 
-/* Responsiveness */
+/* Page Container and Row */
+.page-container {
+  text-align: center;
+  padding: 50px 0;
+}
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 1024px) {
+  .about-us {
+    height: auto;
+    padding: 20px;
+  }
+
+  .about-content {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .image-container {
+    max-width: 400px;
+    margin-right: 20px;
+  }
+
+  .text-container {
+    max-width: 500px;
+  }
+
+  .title {
+    font-size: 2.2rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+  }
+
+  .description {
+    font-size: 0.95rem;
+  }
+}
+
 @media (max-width: 768px) {
   .about-content {
     flex-direction: column;
@@ -12163,7 +12260,13 @@ body {
   }
 
   .image-container {
+    max-width: 100%;
     margin-bottom: 20px;
+  }
+
+  .text-container {
+    max-width: 100%;
+    text-align: center;
   }
 
   .title {
@@ -12173,18 +12276,38 @@ body {
   .subtitle {
     font-size: 1rem;
   }
+
+  .description {
+    font-size: 0.95rem;
+  }
+
+  .btn-cta {
+    padding: 10px 25px;
+    font-size: 0.95rem;
+  }
 }
 
-/* page container and row */
-.page-container {
-  text-align: center;
-  padding: 50px 0;
-}
+@media (max-width: 480px) {
+  .about-us {
+    padding: 20px;
+  }
 
-@media (max-width: 767.98px) {
-  .row {
-    margin-left: 0;
-    margin-right: 0;
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+  }
+
+  .description {
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+  }
+
+  .btn-cta {
+    padding: 10px 20px;
+    font-size: 0.9rem;
   }
 }
 
@@ -12194,7 +12317,7 @@ body {
   display: flex;
   flex-direction: column; /* Ensure child elements are stacked vertically */
   align-items: center; /* Center the child elements horizontally */
-  padding: 60px 0;
+  padding: 60px 20px; /* Adjust padding for smaller screens */
   background-color: #f8f9fa;
   border: 2px solid #e0e0e0; /* Border for the section */
   border-radius: 8px; /* Uniform border radius */
@@ -12245,17 +12368,86 @@ body {
   line-height: 1.6;
 }
 
-@media (max-width: 768px) {
-  .resume-wrap {
-    padding: 20px;
+/* Media Queries for Responsiveness */
+
+/* For tablets and smaller screens */
+@media (max-width: 1024px) {
+  #resume-section {
+    padding: 50px 20px; /* Reduce padding for better fit */
   }
 
   #resume-section h2 {
-    font-size: 28px;
+    font-size: 30px; /* Slightly smaller font for headings */
   }
 
   #resume-section p {
-    font-size: 16px;
+    font-size: 16px; /* Adjust paragraph font size */
+  }
+
+  .resume-wrap {
+    padding: 25px; /* Adjust padding for smaller screens */
+  }
+
+  .resume-wrap h2 {
+    font-size: 22px; /* Slightly smaller headings for resume-wrap */
+  }
+
+  .resume-wrap p {
+    font-size: 14px; /* Adjust text size in resume-wrap */
+  }
+}
+
+/* For mobile phones and smaller devices */
+@media (max-width: 768px) {
+  #resume-section {
+    padding: 40px 20px; /* Reduced padding for smaller screens */
+  }
+
+  #resume-section h2 {
+    font-size: 26px; /* Make the title smaller for mobile */
+  }
+
+  #resume-section p {
+    font-size: 16px; /* Adjust paragraph font size */
+  }
+
+  .resume-wrap {
+    padding: 20px; /* Reduced padding for mobile */
+  }
+
+  .resume-wrap h2 {
+    font-size: 20px; /* Adjust heading size inside resume-wrap */
+  }
+
+  .resume-wrap p {
+    font-size: 14px; /* Smaller text inside resume-wrap */
+  }
+}
+
+/* For very small mobile devices */
+@media (max-width: 480px) {
+  #resume-section {
+    padding: 30px 15px; /* Further reduce padding */
+  }
+
+  #resume-section h2 {
+    font-size: 22px; /* Make the heading even smaller for very small screens */
+  }
+
+  #resume-section p {
+    font-size: 14px; /* Adjust font size for small screens */
+  }
+
+  .resume-wrap {
+    padding: 15px; /* Adjust padding to fit small screens */
+  }
+
+  .resume-wrap h2 {
+    font-size: 18px; /* Smaller headings for very small screens */
+  }
+
+  .resume-wrap p {
+    font-size: 12px; /* Further reduce text size */
   }
 }
 
@@ -12447,10 +12639,11 @@ body.light-theme li {
 }
 
 /* Responsive Design */
-@media (max-width: 991px) {
+@media (max-width: 1199px) {
   .program .container {
-    width: 95%;
+    width: 90%;
   }
+
   .col-lg-5,
   .col-lg-7 {
     width: 100%;
@@ -12458,15 +12651,123 @@ body.light-theme li {
   }
 }
 
+@media (max-width: 991px) {
+  .program .container {
+    width: 95%;
+  }
+
+  .col-lg-5,
+  .col-lg-7 {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-pills .nav-link {
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+
+  .tab-pane {
+    padding: 15px;
+  }
+
+  .d-flex h4 {
+    font-size: 1.1rem;
+  }
+}
+
 @media (max-width: 767px) {
   .section-title h2 {
     font-size: 2rem;
   }
+
   .nav-pills .nav-link {
     font-size: 1rem;
+    padding: 6px 14px;
+    margin-right: 5px; /* Make it closer on small screens */
   }
+
   .tab-pane {
-    padding: 15px;
+    padding: 12px;
+  }
+
+  .program {
+    padding: 40px 0;
+  }
+
+  .theme-switcher {
+    top: 15px;
+    right: 15px;
+  }
+
+  .d-flex {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .d-flex i {
+    font-size: 1.25rem;
+  }
+
+  .d-flex h4 {
+    font-size: 1.1rem;
+  }
+}
+
+/* For Mobile Devices (max-width 576px) */
+@media (max-width: 576px) {
+  .section-title h2 {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .nav-pills .nav-link {
+    font-size: 0.9rem;
+    padding: 5px 12px;
+    margin-right: 5px;
+  }
+
+  .tab-pane {
+    padding: 10px;
+  }
+
+  .program {
+    padding: 20px 0;
+  }
+
+  .theme-switcher {
+    top: 10px;
+    right: 10px;
+  }
+
+  .d-flex i {
+    font-size: 1.2rem;
+  }
+
+  .d-flex h4 {
+    font-size: 1rem;
+  }
+
+  /* Adjust layout for very small screens */
+  .col-lg-5,
+  .col-lg-7 {
+    width: 100% !important; /* Ensure full width on mobile */
+    text-align: center;
+  }
+
+  /* Adjust margins for mobile */
+  .program .container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  /* Add margin between image and nav on mobile */
+  .program-img img {
+    margin-bottom: 20px; /* Space between image and nav */
+  }
+
+  .nav-pills {
+    margin-top: 10px; /* Ensure the navigation starts below the image */
   }
 }
 
@@ -12520,14 +12821,14 @@ body.light-theme li {
   display: flex;
   align-items: center;
   padding: 20px;
-  flex-direction: column;
-  text-align: center;
+  flex-direction: row; /* Change to row for image on the left and text on the right */
+  text-align: left; /* Align text to the left */
 }
 
 .material-icon {
   width: 80px;
   height: 80px;
-  margin-bottom: 15px;
+  margin-right: 15px; /* Add space between image and text */
   object-fit: cover;
   border-radius: 50%;
 }
@@ -12536,7 +12837,7 @@ body.light-theme li {
   font-size: 18px;
   font-weight: bold;
   color: #333;
-  margin-bottom: 10px;
+  margin-bottom: 5px; /* Reduce space below the heading */
 }
 
 .material-text p {
@@ -12544,14 +12845,86 @@ body.light-theme li {
   color: #555;
 }
 
+/* Responsive Design */
+@media (max-width: 1199px) {
+  .material-item {
+    width: calc(
+      50% - 15px
+    ); /* Adjust the width of each item to 50% on medium screens */
+  }
+}
+
+@media (max-width: 991px) {
+  .material-wrapper {
+    gap: 20px;
+  }
+
+  .material-item {
+    width: calc(
+      50% - 20px
+    ); /* Adjust the width for 2 columns on medium screens */
+  }
+}
+
+@media (max-width: 767px) {
+  .material-wrapper {
+    gap: 15px;
+  }
+
+  .material-item {
+    width: 100%; /* Stack the items vertically on smaller screens */
+  }
+
+  .material-content {
+    flex-direction: column; /* Stack the image and text vertically */
+    text-align: center; /* Center text and image */
+  }
+
+  .material-icon {
+    margin-right: 0;
+    margin-bottom: 10px; /* Add margin between image and text when stacked */
+  }
+
+  .material-text h3 {
+    font-size: 16px; /* Adjust heading size for small screens */
+  }
+
+  .material-text p {
+    font-size: 12px; /* Adjust paragraph size for small screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .material-item {
+    width: 100%; /* Ensure full-width layout on very small screens */
+  }
+
+  .material-content {
+    padding: 15px;
+  }
+
+  .material-icon {
+    width: 60px;
+    height: 60px; /* Make icon smaller on smaller screens */
+  }
+
+  .material-text h3 {
+    font-size: 14px; /* Further adjust the heading size for extra small screens */
+  }
+
+  .material-text p {
+    font-size: 11px; /* Further adjust paragraph size for extra small screens */
+  }
+}
+
 /* Dark Mode Styles */
 body.dark-theme .material {
-  background-color: #212529;
+  background-color: #121212;
 }
 
 body.dark-theme .material-item {
   background-color: #2a2a2a;
-  border: 2px solid #666;
+  border: 2px solid #444;
 }
 
 body.dark-theme .material-text h3 {
@@ -12569,7 +12942,7 @@ body.dark-theme .material-item:hover {
 }
 
 body.dark-theme .material-item {
-  background-color: #555; /* Dark background for items in dark mode */
+  background-color: #2a2a2a; /* Dark background for items in dark mode */
   border: 2px solid #666; /* Darker border */
 }
 
@@ -12583,7 +12956,7 @@ body.dark-theme .material-text p {
 
 /* Light Mode Styles (default if dark mode is not applied) */
 body.light-theme .material {
-  background-color: #f5f5f5;
+  background-color: #fff;
 }
 
 body.light-theme .material-item {
@@ -12597,6 +12970,130 @@ body.light-theme .material-text h3 {
 
 body.light-theme .material-text p {
   color: #555;
+}
+
+/* coach sertifikat */
+.call-to-action {
+  padding: 80px 0;
+  position: relative;
+  clip-path: inset(0);
+}
+
+.call-to-action .container {
+  position: relative;
+  z-index: 3;
+  padding: 0 15px; /* Ensure the container has padding for small devices */
+}
+
+.call-to-action h3 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--default-color);
+  margin-bottom: 20px; /* Add margin below heading */
+}
+
+.call-to-action p {
+  color: var(--default-color);
+  margin-bottom: 20px; /* Add margin below paragraph */
+}
+
+.call-to-action .cta-btn {
+  font-family: var(--heading-font);
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 40px;
+  border-radius: 4px;
+  transition: 0.3s;
+  margin: 10px;
+  border: 2px solid var(--contrast-color);
+  color: var(--contrast-color);
+}
+
+.call-to-action .cta-btn:hover {
+  background: var(--contrast-color);
+  color: var(--accent-color);
+  border: 2px solid var(--accent-color);
+}
+
+/* Responsive Design */
+@media (max-width: 1199px) {
+  .call-to-action h3 {
+    font-size: 24px; /* Slightly smaller heading on medium screens */
+  }
+
+  .call-to-action .cta-btn {
+    font-size: 14px; /* Slightly smaller button text */
+    padding: 10px 30px; /* Reduce padding to fit smaller screens */
+  }
+}
+
+@media (max-width: 991px) {
+  .call-to-action h3 {
+    font-size: 22px; /* Smaller heading on tablets */
+  }
+
+  .call-to-action p {
+    font-size: 14px; /* Reduce font size for the paragraph on tablets */
+  }
+
+  .call-to-action .cta-btn {
+    font-size: 14px;
+    padding: 10px 25px; /* Adjust button padding for tablets */
+  }
+}
+
+@media (max-width: 767px) {
+  .call-to-action {
+    padding: 60px 0; /* Less padding on small screens */
+  }
+
+  .call-to-action h3 {
+    font-size: 20px; /* Make the heading smaller on mobile */
+    text-align: center; /* Center the heading on small screens */
+  }
+
+  .call-to-action p {
+    font-size: 14px; /* Make the paragraph font smaller */
+    text-align: center; /* Center the paragraph text */
+  }
+
+  .call-to-action .cta-btn {
+    font-size: 14px;
+    padding: 10px 20px; /* Make the button smaller on mobile */
+    margin-top: 15px; /* Give some space between text and button */
+    width: 100%; /* Make the button full-width on mobile */
+    text-align: center; /* Center the button */
+  }
+}
+
+@media (max-width: 576px) {
+  .call-to-action {
+    padding: 40px 0; /* Less padding for extra small screens */
+  }
+
+  .call-to-action h3 {
+    font-size: 18px; /* Further decrease the heading size */
+  }
+
+  .call-to-action p {
+    font-size: 12px; /* Further reduce paragraph font size */
+  }
+
+  .call-to-action .cta-btn {
+    font-size: 14px;
+    padding: 10px 20px;
+    width: 100%; /* Ensure the button is full-width on small screens */
+  }
+}
+
+body.dark-theme .call-to-action {
+  background-color: #333;
+}
+
+body.light-theme .call-to-action {
+  background-color: #f5f5f5;
 }
 
 /* coach */
@@ -12690,35 +13187,115 @@ body.dark-theme .member-meta span {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .team-member {
-    margin-bottom: 30px;
+    margin-bottom: 20px; /* Reduce margin between team members */
   }
 
   .member-meta h4 {
-    font-size: 18px;
+    font-size: 18px; /* Adjust title size for tablets */
   }
 
   .member-meta p {
-    font-size: 12px;
+    font-size: 14px; /* Adjust description size for tablets */
   }
+}
+
+@media (max-width: 768px) {
+  .team-member {
+    width: 100%; /* Make team members full width on tablets */
+    margin-bottom: 25px; /* Increase bottom margin for better spacing */
+  }
+
+  .member-meta h4 {
+    font-size: 16px; /* Adjust heading size for mobile */
+  }
+
+  .member-meta p {
+    font-size: 13px; /* Adjust description size for mobile */
+  }
+}
+
+/* Swiper Styling */
+.swiper-container {
+  width: 100%;
+  height: auto;
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+
+.swiper-wrapper {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.swiper-slide {
+  display: block;
+  padding: 20px;
+  width: 100%; /* Ensure each slide is responsive */
+}
+
+.swiper-pagination {
+  position: absolute;
+  bottom: 10px;
+  text-align: center;
+  width: 100%;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #007bff;
+  z-index: 10;
+}
+
+/* Additional Responsive Styles */
+@media (max-width: 991px) {
+  .swiper-slide {
+    width: 50%; /* 2 slides per row on smaller devices */
+  }
+}
+
+@media (max-width: 768px) {
+  .swiper-slide {
+    width: 100%; /* 1 slide per row on mobile devices */
+  }
+}
+
+@media (max-width: 576px) {
+  .swiper-pagination {
+    font-size: 12px; /* Adjust pagination size for small screens */
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    font-size: 18px; /* Make navigation buttons slightly smaller on small screens */
+  }
+}
+
+body.dark-theme .swiper-button-next,
+body.dark-theme .swiper-button-prev {
+  color: #fff; /* Light color for dark mode */
+}
+
+body.dark-theme .swiper-pagination-bullet {
+  background-color: #fff;
 }
 
 /* Contact us */
 .contact-us .row {
   display: flex;
   justify-content: space-between;
-  gap: 30px; /* Adding space between the contact info and contact form */
+  gap: 30px;
 }
 
 .contact-info,
 .contact-form {
-  flex: 1; /* Ensures both columns take equal width */
+  flex: 1;
   background: #fff;
   padding: 30px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 30px;
+  margin-bottom: 20px; /* Reduced the margin to bring them closer */
 }
 
 body.dark-theme .contact-info,
@@ -12806,7 +13383,7 @@ body.dark-theme .contact-form textarea:focus {
 
 /* Contact Details */
 .contact-details {
-  margin-top: 30px;
+  margin-top: 20px; /* Reduced margin to bring contact details closer to the form */
 }
 
 .con-info {
@@ -12822,7 +13399,7 @@ body.dark-theme .contact-form textarea:focus {
 }
 
 body.dark-theme .con-info i {
-  color: #f5f5f5; /* Change icon color in dark mode */
+  color: #f5f5f5;
 }
 
 .con-info span {
@@ -12831,7 +13408,80 @@ body.dark-theme .con-info i {
 }
 
 body.dark-theme .con-info span {
-  color: #bbb; /* Text color for dark mode */
+  color: #bbb;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .contact-us .row {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .contact-info,
+  .contact-form {
+    flex: none;
+    width: 100%;
+  }
+
+  .contact-info h3,
+  .contact-form h3 {
+    font-size: 20px;
+  }
+
+  .contact-info p {
+    font-size: 13px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  #contact-submit {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .contact-details {
+    margin-top: 15px; /* Further reduced for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-info,
+  .contact-form {
+    padding: 20px;
+  }
+
+  .contact-info h3,
+  .contact-form h3 {
+    font-size: 18px;
+  }
+
+  .contact-info p {
+    font-size: 12px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  #contact-submit {
+    padding: 8px 15px;
+    font-size: 12px;
+  }
+
+  .con-info i {
+    font-size: 20px;
+  }
+
+  .con-info span {
+    font-size: 12px;
+  }
 }
 
 /* Google Map */
@@ -12947,16 +13597,58 @@ body.light-theme .logos {
   background-color: white;
 }
 
-body.light-theme .logos:before {
-  background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
-}
-
-body.light-theme .logos:after {
-  background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
-}
-
 body.light-theme .logos-slide img {
   filter: none; /* Normal logo appearance in light mode */
+}
+
+/* Media Queries for Responsiveness */
+
+/* Mobile-first, for screens less than 480px */
+@media (max-width: 480px) {
+  .logos {
+    padding: 20px 0; /* Adjusted padding for smaller screens */
+  }
+
+  .logos-slide img {
+    height: 40px; /* Smaller logo size on mobile */
+    margin: 0 10px; /* Reduced spacing between logos */
+  }
+
+  .logos-slide {
+    animation: 25s slide infinite linear; /* Faster animation on mobile for better user experience */
+  }
+}
+
+/* For tablets and smaller desktops, max width 768px */
+@media (max-width: 768px) {
+  .logos {
+    padding: 30px 0; /* Adjusted padding for tablets */
+  }
+
+  .logos-slide img {
+    height: 45px; /* Slightly smaller logos on tablets */
+    margin: 0 15px; /* Reduced spacing between logos */
+  }
+
+  .logos-slide {
+    animation: 30s slide infinite linear; /* Slightly slower animation on tablets */
+  }
+}
+
+/* For larger desktops, max width 1024px */
+@media (max-width: 1024px) {
+  .logos {
+    padding: 35px 0; /* Adjusted padding for larger screens */
+  }
+
+  .logos-slide img {
+    height: 50px; /* Standard size for logos on larger desktops */
+    margin: 0 20px; /* Standard spacing */
+  }
+
+  .logos-slide {
+    animation: 35s slide infinite linear; /* Default animation time for larger screens */
+  }
 }
 
 /* footer */
@@ -12964,6 +13656,11 @@ body.light-theme .logos-slide img {
   padding: 40px 0;
   background-color: #292f36; /* Default dark background */
   color: #f5f5f5;
+  text-align: center; /* Centering content in footer */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Footer Social Links */
@@ -12972,6 +13669,8 @@ body.light-theme .logos-slide img {
   padding: 0;
   margin: 0;
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .social-icon .list-inline-item {
@@ -13027,7 +13726,71 @@ body.light-theme .logos-slide img {
   height: auto;
   transition: width 0.3s ease-in-out;
   display: block;
-  margin: 30px auto 30px; /* Center the logo and add margin-bottom */
+  margin: 30px auto; /* Center the logo and add margin-bottom */
+}
+
+/* Media Queries for Responsiveness */
+
+/* Mobile-first, for screens less than 480px */
+@media (max-width: 480px) {
+  #footer {
+    padding: 20px 0; /* Adjust padding for smaller screens */
+  }
+
+  .social-icon .list-inline-item {
+    margin: 0 10px; /* Reduced margin between icons */
+  }
+
+  .social-icon a {
+    font-size: 25px; /* Even smaller icons for mobile */
+  }
+
+  .footer-logo {
+    max-width: 80px; /* Reduced logo size on mobile */
+    margin: 10px auto; /* Adjusted margin for smaller screens */
+  }
+
+  .copyright p {
+    font-size: 12px; /* Slightly smaller text for mobile */
+  }
+}
+
+/* For tablets and smaller desktops, max width 768px */
+@media (max-width: 768px) {
+  .social-icon .list-inline-item {
+    margin: 0 15px; /* Adjusted margin for tablets */
+  }
+
+  .social-icon a {
+    font-size: 35px; /* Adjusted icon size for tablet screens */
+  }
+
+  .footer-logo {
+    max-width: 90px; /* Slightly larger logo on tablets */
+  }
+
+  .copyright p {
+    font-size: 13px; /* Adjusted font size for tablets */
+  }
+}
+
+/* For larger desktops, max width 1024px */
+@media (max-width: 1024px) {
+  .social-icon .list-inline-item {
+    margin: 0 20px; /* Default margin for larger screens */
+  }
+
+  .social-icon a {
+    font-size: 40px; /* Default size for desktop icons */
+  }
+
+  .footer-logo {
+    max-width: 100px; /* Default logo size for desktop */
+  }
+
+  .copyright p {
+    font-size: 14px; /* Standard text size for larger screens */
+  }
 }
 
 /* Dark Mode */
