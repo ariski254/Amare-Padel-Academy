@@ -108,7 +108,7 @@ document.querySelector(".logos").appendChild(copy);
 
 // coach
 var swiper = new Swiper(".swiper-container", {
-  slidesPerView: 4, // Menampilkan 4 slide pada layar besar
+  slidesPerView: 1, // Menampilkan 4 slide pada layar besar
   spaceBetween: 20, // Jarak antar slide (pastikan cukup agar tidak terpotong)
   loop: true, // Mengaktifkan loop agar carousel berputar tanpa henti
   navigation: {
@@ -121,7 +121,7 @@ var swiper = new Swiper(".swiper-container", {
   },
   breakpoints: {
     1024: {
-      slidesPerView: 4, // 4 slide pada layar besar
+      slidesPerView: 3, // 4 slide pada layar besar
     },
     768: {
       slidesPerView: 2, // 2 slide pada tablet
