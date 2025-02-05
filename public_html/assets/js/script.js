@@ -133,3 +133,26 @@ var swiper = new Swiper(".swiper-container", {
   centeredSlides: false, // Menjaga agar slide tidak tersusun secara melengkung
   watchOverflow: true, // Memastikan jika ada lebih dari 4 slide, sisanya disembunyikan
 });
+
+// Portfolio
+$(document).ready(function () {
+  // Initialize the Magnific Popup on elements with the class "image-popup"
+  $(".image-popup").magnificPopup({
+    type: "image",
+    gallery: {
+      enabled: true, // Enables gallery navigation through images
+    },
+    removalDelay: 300, // Delay before closing the popup
+    mainClass: "mfp-fade", // Fade effect
+  });
+});
+
+// Page_navbar
+// $(window).scroll(function () {
+//   var scroll = $(window).scrollTop();
+//   if (scroll >= 100) {
+//     $(".page-navbar").addClass("sticky");
+//   } else {
+//     $(".page-navbar").removeClass("sticky");
+//   }
+// });
